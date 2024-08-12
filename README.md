@@ -24,8 +24,11 @@ Application for searching movie by keyword.
 
 ## Installation
 
-1. Clone this repository 
+1. Clone this repository: `git clone https://github.com/tanykos/movies-search`
 2. Install all dependencies in the project's folder: `npm install`
 3. Run the project: `npm run dev`
 
 ## Screenshots  
+
+![chrome_Y8uprZWEC9](https://github.com/user-attachments/assets/e0f8b008-b5e8-44a2-bffc-8144612a2674)
+
