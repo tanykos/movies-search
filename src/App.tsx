@@ -26,9 +26,10 @@ export default function App() {
     page: currentPage,
   });
 
-  const deleteMovieIdFromUrl = () => {
+  const deleteActiveMovie = () => {
     searchParams.delete('movieId');
     navigate(`/?${searchParams.toString()}`);
+    dispatch(setActiveMovie(''));
   };
 
   const handleLeftBoxClick = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -40,8 +41,7 @@ export default function App() {
       searchParams.set('movieId', card.id);
       navigate(`${Paths.DETAILS}?${searchParams.toString()}`);
     } else {
-      deleteMovieIdFromUrl();
-      dispatch(setActiveMovie(''));
+      deleteActiveMovie();
     }
   };
 
@@ -60,7 +60,7 @@ export default function App() {
           {!isLoading && data && data.results.length > 0 && <Pagination />}
         </div>
         <div className={`right-box ${!matchDetails ? 'hide' : ''}`} onClick={handleRightBoxClick}>
-          <button className={`close-button ${!matchDetails ? 'hide' : ''}`} onClick={deleteMovieIdFromUrl}>
+          <button className={`close-button ${!matchDetails ? 'hide' : ''}`} onClick={deleteActiveMovie}>
             Close
           </button>
           <Outlet />
