@@ -16,6 +16,8 @@ export default function Card({ movie: { id, title, year, poster } }: CardProps) 
   const dispatch = useAppDispatch();
   const selectedMovies = useAppSelector((state) => state.movies.selectedMovies);
   const isSelected = selectedMovies.some((selectedMovie) => selectedMovie.id === id);
+  const activeMovie = useAppSelector((state) => state.movies.activeMovie);
+  const isActive = activeMovie === id;
   const [checked, setChecked] = useState(isSelected);
 
   const [fetchMovie] = moviesApi.useLazyFetchMovieByIdQuery();
@@ -38,7 +40,11 @@ export default function Card({ movie: { id, title, year, poster } }: CardProps) 
   };
 
   return (
-    <div className={`movieCard ${checked ? 'selected' : ''}`} id={id} data-testid="movie-card">
+    <div
+      className={`movieCard ${checked ? 'selected' : ''} ${isActive ? 'activeCard' : ''}`}
+      id={id}
+      data-testid="movie-card"
+    >
       <div className="top-row">
         <input
           className="custom-checkbox"

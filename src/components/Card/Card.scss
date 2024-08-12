@@ -41,6 +41,10 @@
     &.selected {
       background-color: var(--hover-card-color-light);
     }
+
+    &.activeCard {
+      background-color: var(--button-hover-color);
+    }
   }
 
   .custom-checkbox {
@@ -62,4 +66,9 @@
 
 .movieTitle {
   color: var(--gray-middle-color);
+}
+
+.activeCard {
+  background-color: var(--button-color);
+  box-shadow: 0 0 10px var(--button-color);
 }
