@@ -1,0 +1,65 @@
+@import '../../styles/variables';
+
+.movieCard {
+  width: calc(20% - 20px);
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: var(--card-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s;
+
+  .top-row {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 0.5rem;
+  }
+
+  &.selected {
+    background-color: var(--hover-card-color);
+    box-shadow: 0 0 10px var(--gray-light-color);
+  }
+
+  .movieImage {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .poster {
+    background-size: cover;
+  }
+
+  .placeholder {
+    background-size: contain;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--card-color-light);
+    &.selected {
+      background-color: var(--hover-card-color-light);
+    }
+  }
+
+  .custom-checkbox {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .movieCard {
+    width: calc(50% - 20px);
+  }
+}
+
+.movieYear {
+  color: var(--gray-light-color);
+}
+
+.movieTitle {
+  color: var(--gray-middle-color);
+}
